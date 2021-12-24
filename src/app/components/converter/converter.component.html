@@ -1,0 +1,15 @@
+<div class="converter">
+    <h2>Currency Converter</h2>
+    <div class="form" [formGroup]="form">
+        <input type="number" formControlName="quantity" min="1" />
+        <label for="source">From:</label>
+        <select formControlName="source" #source>
+            <option *ngFor="let source of result" [ngValue]="source.key">{{source.key}}</option>
+        </select>
+        <label for="destination">To:</label>
+        <select formControlName="destination" #destination>
+            <option *ngFor="let destination of result" [ngValue]="destination.key">{{destination.key}}</option>
+        </select>
+        <app-result *ngIf="!!(resultLine$$ | async)" [result]="resultLine$$ | async"></app-result>
+    </div>
+</div>
