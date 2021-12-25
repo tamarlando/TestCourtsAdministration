@@ -50,7 +50,7 @@ export class ConverterComponent implements OnInit {
     const sourceKey = this.form.controls['source'].value;
     const destinationKey = this.form.controls['destination'].value;
     if (!!quantity && quantity > 0 && !!sourceKey && !!destinationKey) {
-      const result = this.rates[sourceKey] * (1 / this.rates[destinationKey]) * quantity;
+      const result = this.rates[destinationKey] / this.rates[sourceKey] * quantity;
       const resultLine = {
         quantity: quantity,
         source: sourceKey,
